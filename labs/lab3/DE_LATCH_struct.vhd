@@ -1,0 +1,77 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    22:35:16 10/25/2020 
+-- Design Name: 
+-- Module Name:    DE_LATCH_struct - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity DE_LATCH_struct is
+    Port ( D : in  STD_LOGIC;
+           E : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           nQ : out  STD_LOGIC);
+end DE_LATCH_struct;
+
+architecture Structural of DE_LATCH_struct is
+
+component NOR2
+    Port ( 
+		A : in  STD_LOGIC;
+		B : in  STD_LOGIC;
+		Z : out  STD_LOGIC
+	 );
+end component;
+
+component INV1
+        Port ( 
+				X : in  STD_LOGIC;
+            Z : out  STD_LOGIC
+			);
+end component;
+
+component AND2
+    Port ( 
+		A : in  STD_LOGIC;
+		B : in  STD_LOGIC;
+		Z  : out  STD_LOGIC
+	 );
+end component;
+
+signal X,Y,nD,S,R : STD_LOGIC;
+
+begin
+
+	U0:	INV1	port map(D, nD);
+	U1:	AND2	port map(E, D, S);
+	U2:	AND2	port map(E, nD, R);
+	U3:	NOR2	port map(S, Y, X);
+	Q <= X;
+	U4:	NOR2	port map(R, X, Y);
+	nQ <= Y;
+	
+end Structural;
+
