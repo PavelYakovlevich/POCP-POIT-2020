@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+-- 2.1
 entity FSM5c is
     Port 
 	 ( 	

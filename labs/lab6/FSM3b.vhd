@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+-- 2.4
 entity FSM3b is
     Port 
 	 ( 	

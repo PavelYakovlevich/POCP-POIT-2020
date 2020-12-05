@@ -4,7 +4,8 @@ use ieee.std_logic_unsigned.ALL;
  
 ENTITY FSM2_tb IS
 END FSM2_tb;
- 
+
+-- 2.10 
 ARCHITECTURE behavior OF FSM2_tb IS 
  
     COMPONENT FSM2

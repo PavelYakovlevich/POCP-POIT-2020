@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-
+-- 2.7
 entity FSM4b is
     Port 
 	 ( 	
